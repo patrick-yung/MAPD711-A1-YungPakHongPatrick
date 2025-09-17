@@ -10,7 +10,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtappointmentTittle"
@@ -60,8 +68,8 @@
             <Spinner
                 android:id="@+id/service_spinner"
                 android:layout_width="wrap_content"
-                android:focusableInTouchMode="true"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -97,25 +105,59 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btnmain"
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
             android:layout_weight="1"
             android:gravity="bottom"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <Button
-                android:id="@+id/btnnext"
+                android:id="@+id/btnappointmentnext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Confirm" />
 
-            <TextView
-                android:id="@+id/txtstudent"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yung Pak Hong Patrick" />
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtstudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/studentname" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtstudentid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/studentid" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

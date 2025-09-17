@@ -72,10 +72,7 @@ class AppointmentActivity : AppCompatActivity() {
 
 
         //Final Confirm Button
-        val btnnext = findViewById<Button>(R.id.btnnext)
-        btnnext.isEnabled = appointmentdate.isNotBlank()
-                && service_spinner.getSelectedItem().toString().isNotBlank()
-                && appointmenttime.getSelectedItem().toString().isNotBlank()
+        val btnnext = findViewById<Button>(R.id.btnappointmentnext)
         btnnext.setOnClickListener {
             val appointmentset = Intent( this, ConfirmActivity::class.java)
 

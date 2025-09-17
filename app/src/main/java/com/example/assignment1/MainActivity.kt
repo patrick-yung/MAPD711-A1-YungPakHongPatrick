@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnnext: Button = findViewById(R.id.btnnext)
+        val btnnext: Button = findViewById(R.id.btnmainnext)
         val btnvalidnext: Button = findViewById(R.id.btnvalidnext)
         val inputemail: EditText = findViewById(R.id.editTxtEmailAddress)
         val inputname: EditText = findViewById(R.id.editTxtName)
@@ -49,8 +48,6 @@ class MainActivity : AppCompatActivity() {
         inputemail.addTextChangedListener(textWatcher)
         inputname.addTextChangedListener(textWatcher)
 
-        //Add meanu as well
-        //Add log messages if valid
 
         //Main Activity Next Button and valid
         btnnext.setOnClickListener {
