@@ -6,6 +6,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +25,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        //Main Activity Widgets
         val btnnext: Button = findViewById(R.id.btnnext)
         val btnvalidnext: Button = findViewById(R.id.btnvalidnext)
         val inputemail: EditText = findViewById(R.id.editTxtEmailAddress)
@@ -43,14 +44,12 @@ class MainActivity : AppCompatActivity() {
                 val emailText = inputemail.text.toString().trim()
                 val nameText = inputname.text.toString().trim()
                 btnvalidnext.isEnabled = emailText.isNotBlank() && nameText.isNotBlank()
-                //Change this
             }
         }
         inputemail.addTextChangedListener(textWatcher)
         inputname.addTextChangedListener(textWatcher)
 
         //Add meanu as well
-        //Add second button
         //Add log messages if valid
 
         //Main Activity Next Button and valid
@@ -77,10 +76,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(userinput)
 
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.mainmenu, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        when (item.itemId) {
+            R.id.studentname -> Toast.makeText(this, "You clicked open.", Toast.LENGTH_LONG).show()
+            R.id.studentid -> Toast.makeText(this, "You clicked close", Toast.LENGTH_LONG).show()
+        }
 
-
-
+        return true
     }
 }
+
