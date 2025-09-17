@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,9 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         //Main Activity Widgets
         val btnnext: Button = findViewById(R.id.btnnext)
+        val btnvalidnext: Button = findViewById(R.id.btnvalidnext)
         val inputemail: EditText = findViewById(R.id.editTxtEmailAddress)
         val inputname: EditText = findViewById(R.id.editTxtName)
-        btnnext.isEnabled = inputemail.text.isNotBlank() && inputname.text.isNotBlank()
+        btnvalidnext.isEnabled = inputemail.text.isNotBlank() && inputname.text.isNotBlank()
 
 
 
@@ -40,21 +42,43 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val emailText = inputemail.text.toString().trim()
                 val nameText = inputname.text.toString().trim()
-                btnnext.isEnabled = emailText.isNotBlank() && nameText.isNotBlank()
+                btnvalidnext.isEnabled = emailText.isNotBlank() && nameText.isNotBlank()
+                //Change this
             }
         }
         inputemail.addTextChangedListener(textWatcher)
         inputname.addTextChangedListener(textWatcher)
 
-        //Main Activity Next Button
+        //Add meanu as well
+        //Add second button
+        //Add log messages if valid
+
+        //Main Activity Next Button and valid
         btnnext.setOnClickListener {
             val email = inputemail.text.toString()
             val name = inputname.text.toString()
-            val userinput = Intent( this, AppointmentActivity::class.java)
+            if (email.isNotBlank() && name.isNotBlank()) {
+                val userinput = Intent(this, AppointmentActivity::class.java)
+                userinput.putExtra("email", email)
+                userinput.putExtra("name", name)
+                startActivity(userinput)
+            } else {
+                if (email.isBlank() && name.isBlank())Toast.makeText(this, "Please Enter Email and Name", Toast.LENGTH_SHORT).show()
+                else if (email.isBlank())Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show()
+                else if (name.isBlank())Toast.makeText(this, "Please Enter Name", Toast.LENGTH_SHORT).show()
+            }
+        }
+        btnvalidnext.setOnClickListener {
+            val email = inputemail.text.toString()
+            val name = inputname.text.toString()
+            val userinput = Intent(this, AppointmentActivity::class.java)
             userinput.putExtra("email", email)
             userinput.putExtra("name", name)
             startActivity(userinput)
+
         }
+
+
 
 
 
