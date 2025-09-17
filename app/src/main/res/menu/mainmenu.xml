@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/studentname"
-        android:title="Yung Pak Hong Patrick" />
+        android:title="@string/studentname" />
     <item
         android:id="@+id/studentid"
-        android:title="301520576" />
+        android:title="@string/studentid"/>
 
 
 </menu>
