@@ -24,7 +24,7 @@
             android:id="@+id/txtmaintittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resturant Booking "
+            android:text="Restaurant Booking "
             android:textAlignment="center"
             android:textSize="34sp" />
 
@@ -95,6 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:backgroundTint = "@color/lightblue"
+                android:textColor = "@color/white"
                 android:text="Confirm" />
 
             <LinearLayout

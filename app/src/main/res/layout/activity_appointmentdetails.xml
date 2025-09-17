@@ -24,7 +24,7 @@
             android:id="@+id/txtappointmentTittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resturant Booking "
+            android:text="Restaurant Booking "
             android:textAlignment="center"
             android:textSize="34sp" />
 
@@ -32,17 +32,22 @@
             android:id="@+id/txtappointmentname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="Open Sans"
+            android:fontFeatureSettings="Open Sans"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtappointmentemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="Roboto"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,7 +126,11 @@
                 android:id="@+id/btnappointmentnext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm" />
+                android:text="Confirm"
+                android:backgroundTint = "@color/lightblue"
+                android:textColor = "@color/white"
+                />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
