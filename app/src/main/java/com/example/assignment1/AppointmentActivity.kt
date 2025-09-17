@@ -7,8 +7,6 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.Spinner
 import android.widget.TextView
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -61,17 +59,23 @@ class AppointmentActivity : AppCompatActivity() {
         }
 
         // Time View
+        val appointmenttime = findViewById<Spinner>( R.id.spinner_time)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.avaiable_time,
+            android.R.layout.simple_spinner_item
 
-        val hour = findViewById<Spinner>( R.id.spinner_hour)
-        val minutes = findViewById<Spinner>( R.id.spinner_minutes)
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            appointmenttime.adapter = adapter
+        }
+
 
         //Final Confirm Button
         val btnnext = findViewById<Button>(R.id.btnnext)
         btnnext.isEnabled = appointmentdate.isNotBlank()
                 && service_spinner.getSelectedItem().toString().isNotBlank()
-                && hour.getSelectedItem().toString().isNotBlank()
-                && minutes.getSelectedItem().toString().isNotBlank()
-
+                && appointmenttime.getSelectedItem().toString().isNotBlank()
         btnnext.setOnClickListener {
             val appointmentset = Intent( this, ConfirmActivity::class.java)
 
@@ -79,8 +83,7 @@ class AppointmentActivity : AppCompatActivity() {
             appointmentset.putExtra("email", email)
             appointmentset.putExtra("date", appointmentdate)
             appointmentset.putExtra("service", service_spinner.getSelectedItem().toString())
-            appointmentset.putExtra("hour", email)
-            appointmentset.putExtra("minutes", name)
+            appointmentset.putExtra("appointmenttime", appointmenttime.getSelectedItem().toString())
             startActivity(appointmentset)
 
         }

@@ -60,6 +60,7 @@
             <Spinner
                 android:id="@+id/service_spinner"
                 android:layout_width="wrap_content"
+                android:focusableInTouchMode="true"
                 android:layout_height="wrap_content" />
 
             <Space
