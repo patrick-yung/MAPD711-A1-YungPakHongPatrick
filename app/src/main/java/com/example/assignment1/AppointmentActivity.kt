@@ -1,6 +1,7 @@
 package com.example.assignment1
 
 import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -51,8 +52,12 @@ class AppointmentActivity : AppCompatActivity() {
         }
 
         //Calendar View
-        val calendarView = findViewById<CalendarView>(R.id.calendarView)
-        var appointmentdate : String = ""
+        val calendarView: CalendarView = findViewById(R.id.calendarView)
+        var dateinmillisecond = calendarView.getDate()
+        val defaultdate = Calendar.getInstance().apply {
+            timeInMillis = dateinmillisecond
+        }
+        var appointmentdate : String = defaultdate.get(Calendar.DAY_OF_MONTH).toString() + "/" +(defaultdate.get(Calendar.MONTH) + 1) + "/" + defaultdate.get(Calendar.YEAR).toString()
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val date = "$dayOfMonth/${month + 1}/$year"
             appointmentdate = date.toString()
