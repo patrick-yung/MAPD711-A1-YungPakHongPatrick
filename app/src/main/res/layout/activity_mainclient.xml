@@ -19,6 +19,7 @@
             android:id="@+id/txtmaintittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="16dp"
             android:text="Resturant Booking "
             android:textAlignment="center"
             android:textSize="34sp"
