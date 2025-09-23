@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         btnvalidnext.isEnabled = inputemail.text.isNotBlank() && inputname.text.isNotBlank()
 
 
-
         //Check Validation Event for Email and Name
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -49,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         inputemail.addTextChangedListener(textWatcher)
         inputname.addTextChangedListener(textWatcher)
 
-
         //Main Activity Next Button and valid
         btnnext.setOnClickListener {
             val email = inputemail.text.toString()
@@ -60,9 +58,9 @@ class MainActivity : AppCompatActivity() {
                 userinput.putExtra("name", name)
                 startActivity(userinput)
             } else {
-                if (email.isBlank() && name.isBlank())Toast.makeText(this, "Please Enter Email and Name", Toast.LENGTH_SHORT).show()
-                else if (email.isBlank())Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show()
-                else if (name.isBlank())Toast.makeText(this, "Please Enter Name", Toast.LENGTH_SHORT).show()
+                if (email.isBlank() && name.isBlank())Toast.makeText(this, getString(R.string.invalid_name_email), Toast.LENGTH_SHORT).show()
+                else if (email.isBlank())Toast.makeText(this, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show()
+                else if (name.isBlank())Toast.makeText(this, getString(R.string.invalid_name), Toast.LENGTH_SHORT).show()
             }
         }
         btnvalidnext.setOnClickListener {

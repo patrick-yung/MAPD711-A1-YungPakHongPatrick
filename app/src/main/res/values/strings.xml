@@ -5,12 +5,10 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    w<string name="invalid_email">"Please Enter Valid Email"</string>">
+    <string name="invalid_email">"Please Enter Valid Email"</string>">
     <string name="invalid_name">"Please Enter Valid Name"</string>
+    <string name="invalid_name_email">"Please Enter Email and Name"</string>
     <string name="studentid">  "      301520576      "</string>
     <string name="studentname">"Yung Pak Hong Patrick"</string>
+    <string name="confirmmessage">"Your Booking is Confirmed %1$s, see you on %2$s at %3$s"</string>
 </resources>

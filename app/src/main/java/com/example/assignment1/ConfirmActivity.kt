@@ -44,7 +44,7 @@ class ConfirmActivity : AppCompatActivity() {
 
         val btnconfirmation = findViewById<Button>(R.id.btnconfirmnext)
         btnconfirmation.setOnClickListener {
-            Toast.makeText(this, "Your Booking is Confirmed $name, see you on $date on $appointmenttime", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.confirmmessage, name, date, appointmenttime), Toast.LENGTH_SHORT).show()
         }
 
     }
