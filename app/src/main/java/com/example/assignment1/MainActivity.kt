@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnnext: Button = findViewById(R.id.btnmainnext)
-        val btnvalidnext: Button = findViewById(R.id.btnvalidnext)
-        val inputemail: EditText = findViewById(R.id.editTxtEmailAddress)
-        val inputname: EditText = findViewById(R.id.editTxtName)
-        btnvalidnext.isEnabled = inputemail.text.isNotBlank() && inputname.text.isNotBlank()
+        val btnNext: Button = findViewById(R.id.btnMainNext)
+        val btnValidNext: Button = findViewById(R.id.btnValidNext)
+        val inputEmail: EditText = findViewById(R.id.editTxtEmailAddress)
+        val inputName: EditText = findViewById(R.id.editTxtName)
+        btnValidNext.isEnabled = inputEmail.text.isNotBlank() && inputName.text.isNotBlank()
 
 
         //Check Validation Event for Email and Name
@@ -40,50 +40,41 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
             override fun afterTextChanged(s: Editable?) {
-                val emailText = inputemail.text.toString().trim()
-                val nameText = inputname.text.toString().trim()
-                btnvalidnext.isEnabled = emailText.isNotBlank() && nameText.isNotBlank()
+                val emailText = inputEmail.text.toString().trim()
+                val nameText = inputName.text.toString().trim()
+                btnValidNext.isEnabled = emailText.isNotBlank() && nameText.isNotBlank()
             }
         }
-        inputemail.addTextChangedListener(textWatcher)
-        inputname.addTextChangedListener(textWatcher)
+        inputEmail.addTextChangedListener(textWatcher)
+        inputName.addTextChangedListener(textWatcher)
 
         //Main Activity Next Button and valid
-        btnnext.setOnClickListener {
-            val email = inputemail.text.toString()
-            val name = inputname.text.toString()
-            if (email.isNotBlank() && name.isNotBlank()) {
+        btnNext.setOnClickListener {
+            val customerEmail = inputEmail.text.toString()
+            val customerName = inputName.text.toString()
+            if (customerEmail.isNotBlank() && customerName.isNotBlank()) {
                 val userinput = Intent(this, AppointmentActivity::class.java)
-                userinput.putExtra("email", email)
-                userinput.putExtra("name", name)
+                userinput.putExtra("customerEmail", customerEmail)
+                userinput.putExtra("customerName", customerName)
                 startActivity(userinput)
             } else {
-                if (email.isBlank() && name.isBlank())Toast.makeText(this, getString(R.string.invalid_name_email), Toast.LENGTH_SHORT).show()
-                else if (email.isBlank())Toast.makeText(this, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show()
-                else if (name.isBlank())Toast.makeText(this, getString(R.string.invalid_name), Toast.LENGTH_SHORT).show()
+                if (customerEmail.isBlank() && customerName.isBlank())Toast.makeText(this, getString(R.string.invalid_name_email), Toast.LENGTH_SHORT).show()
+                else if (customerEmail.isBlank())Toast.makeText(this, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show()
+                else if (customerName.isBlank())Toast.makeText(this, getString(R.string.invalid_name), Toast.LENGTH_SHORT).show()
             }
         }
-        btnvalidnext.setOnClickListener {
-            val email = inputemail.text.toString()
-            val name = inputname.text.toString()
-            val userinput = Intent(this, AppointmentActivity::class.java)
-            userinput.putExtra("email", email)
-            userinput.putExtra("name", name)
-            startActivity(userinput)
+        btnValidNext.setOnClickListener {
+            val customerEmail = inputEmail.text.toString()
+            val customerName = inputName.text.toString()
+            val userInput = Intent(this, AppointmentActivity::class.java)
+            userInput.putExtra("customerEmail", customerEmail)
+            userInput.putExtra("customerName", customerName)
+            startActivity(userInput)
 
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when (item.itemId) {
-            R.id.studentid -> Toast.makeText(this, "You clicked open.", Toast.LENGTH_LONG).show()
-            R.id.studentname -> Toast.makeText(this, "You clicked close", Toast.LENGTH_LONG).show()
-        }
-
         return true
     }
 }

@@ -9,8 +9,6 @@ import android.widget.CalendarView
 import android.widget.Spinner
 import android.widget.TextView
 import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,7 +19,7 @@ class AppointmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_appointmentdetails)
+        setContentView(R.layout.activity_appointment_details)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,18 +27,18 @@ class AppointmentActivity : AppCompatActivity() {
         }
 
         //Get Intent Data
-        val email = intent.getStringExtra("email")
-        val name = intent.getStringExtra("name")
+        val customerEmail = intent.getStringExtra("customerEmail")
+        val customerName = intent.getStringExtra("customerName")
 
         //Set Appointment Details Widgets
-        val txtappointmentname = findViewById<TextView>(R.id.txtappointmentname)
-        val txtappointmentemail = findViewById<TextView>(R.id.txtappointmentemail)
-        txtappointmentname.text = "Email : " + email
-        txtappointmentemail.text = "Name : " + name
+        val txtAppointmentName = findViewById<TextView>(R.id.txtAppointmentName)
+        val txtAppointmentEmail = findViewById<TextView>(R.id.txtAppointmentEmail)
+        txtAppointmentName.text = "Email : $customerEmail"
+        txtAppointmentEmail.text = "Name : $customerName"
 
 
         //Service Spinner
-        val service_spinner = findViewById<Spinner>(R.id.service_spinner)
+        val serviceSpinner = findViewById<Spinner>(R.id.serviceSpinner)
         ArrayAdapter.createFromResource(
             this,
             R.array.service_type,
@@ -48,45 +46,45 @@ class AppointmentActivity : AppCompatActivity() {
 
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            service_spinner.adapter = adapter
+            serviceSpinner.adapter = adapter
         }
 
         //Calendar View
         val calendarView: CalendarView = findViewById(R.id.calendarView)
-        var dateinmillisecond = calendarView.getDate()
-        val defaultdate = Calendar.getInstance().apply {
-            timeInMillis = dateinmillisecond
+        var dateInMilliSecond = calendarView.getDate()
+        val defaultDate = Calendar.getInstance().apply {
+            timeInMillis = dateInMilliSecond
         }
-        var appointmentdate : String = defaultdate.get(Calendar.DAY_OF_MONTH).toString() + "/" +(defaultdate.get(Calendar.MONTH) + 1) + "/" + defaultdate.get(Calendar.YEAR).toString()
+        var appointmentDate : String = "${defaultDate.get(Calendar.DAY_OF_MONTH).toString()}/${defaultDate.get(Calendar.MONTH) + 1}/${defaultDate.get(Calendar.YEAR).toString()}"
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val date = "$dayOfMonth/${month + 1}/$year"
-            appointmentdate = date.toString()
+            appointmentDate = date.toString()
         }
 
         // Time View
-        val appointmenttime = findViewById<Spinner>( R.id.spinner_time)
+        val appointmentTime = findViewById<Spinner>( R.id.spinnerTime)
         ArrayAdapter.createFromResource(
             this,
-            R.array.avaiable_time,
+            R.array.avaiableTime,
             android.R.layout.simple_spinner_item
 
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            appointmenttime.adapter = adapter
+            appointmentTime.adapter = adapter
         }
 
 
         //Final Confirm Button
-        val btnnext = findViewById<Button>(R.id.btnappointmentnext)
+        val btnnext = findViewById<Button>(R.id.btnAppointmentNext)
         btnnext.setOnClickListener {
-            val appointmentset = Intent( this, ConfirmActivity::class.java)
+            val appointmentSet = Intent( this, ConfirmActivity::class.java)
 
-            appointmentset.putExtra("name", name)
-            appointmentset.putExtra("email", email)
-            appointmentset.putExtra("date", appointmentdate)
-            appointmentset.putExtra("service", service_spinner.getSelectedItem().toString())
-            appointmentset.putExtra("appointmenttime", appointmenttime.getSelectedItem().toString())
-            startActivity(appointmentset)
+            appointmentSet.putExtra("customerName", customerName)
+            appointmentSet.putExtra("customerEmail", customerEmail)
+            appointmentSet.putExtra("customerDate", appointmentDate)
+            appointmentSet.putExtra("customerService", serviceSpinner.getSelectedItem().toString())
+            appointmentSet.putExtra("customerAppointmentTime", appointmentTime.getSelectedItem().toString())
+            startActivity(appointmentSet)
 
         }
     }

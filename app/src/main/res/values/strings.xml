@@ -8,7 +8,7 @@
     <string name="invalid_email">"Please Enter Valid Email"</string>">
     <string name="invalid_name">"Please Enter Valid Name"</string>
     <string name="invalid_name_email">"Please Enter Email and Name"</string>
-    <string name="studentid">  "      301520576      "</string>
-    <string name="studentname">"Yung Pak Hong Patrick"</string>
-    <string name="confirmmessage">"Your Booking is Confirmed %1$s, see you on %2$s at %3$s"</string>
+    <string name="studentID">  "      301520576      "</string>
+    <string name="studentName">"Yung Pak Hong Patrick"</string>
+    <string name="confirmMessage">"Your Booking is Confirmed %1$s, see you on %2$s at %3$s"</string>
 </resources>

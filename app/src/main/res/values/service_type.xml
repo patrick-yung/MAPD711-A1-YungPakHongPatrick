@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="service_type">
-        <item>"Haircut"</item>
+        <item>"Take Away"</item>
         <item>"Delivery"</item>
-        <item>"House Cleaning"</item>
-        <item>"Delivery"</item>
-        <item>"Consulting"</item>
-        <item>"IT Service"</item>
+        <item>"Speak to Manager"</item>
+        <item>"Book Room"</item>
+        <item>"Book Party Room"</item>
+        <item>"Special Request"</item>
     </string-array>
 </resources>

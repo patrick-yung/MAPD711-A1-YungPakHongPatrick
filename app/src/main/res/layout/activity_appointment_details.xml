@@ -31,7 +31,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtappointmentname"
+            android:id="@+id/txtAppointmentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="Open Sans"
@@ -42,7 +42,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtappointmentemail"
+            android:id="@+id/txtAppointmentEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="Roboto"
@@ -62,7 +62,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/txtservicetype"
+                android:id="@+id/txtServiceType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Service Type : " />
@@ -73,7 +73,7 @@
                 android:layout_weight="1" />
 
             <Spinner
-                android:id="@+id/service_spinner"
+                android:id="@+id/serviceSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true" />
@@ -100,7 +100,7 @@
                 android:layout_weight="1" />
 
             <Spinner
-                android:id="@+id/spinner_time"
+                android:id="@+id/spinnerTime"
                 android:layout_width="169dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -125,7 +125,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <Button
-                android:id="@+id/btnappointmentnext"
+                android:id="@+id/btnAppointmentNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Confirm"
@@ -149,7 +149,7 @@
                     android:id="@+id/txtstudent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/studentname" />
+                    android:text="@string/studentName" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/studentid" />
+                    android:text="@string/studentID" />
 
                 <Space
                     android:layout_width="wrap_content"

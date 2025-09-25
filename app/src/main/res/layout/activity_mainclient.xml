@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Resturant Booking "
+            android:text="Restaurant Booking "
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -77,7 +77,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/btnmainnext"
+                    android:id="@+id/btnMainNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -91,7 +91,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/btnvalidnext"
+                    android:id="@+id/btnValidNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -122,7 +122,7 @@
                     android:id="@+id/txtstudent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/studentname" />
+                    android:text="@string/studentName" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/studentid" />
+                    android:text="@string/studentID" />
 
                 <Space
                     android:layout_width="wrap_content"

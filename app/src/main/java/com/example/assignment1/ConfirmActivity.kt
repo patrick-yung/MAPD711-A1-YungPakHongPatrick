@@ -1,9 +1,7 @@
 package com.example.assignment1
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -24,27 +22,27 @@ class ConfirmActivity : AppCompatActivity() {
         }
 
 
-        val email = intent.getStringExtra("email")
-        val name = intent.getStringExtra("name")
-        val date = intent.getStringExtra("date")
-        val service = intent.getStringExtra("service")
-        val appointmenttime = intent.getStringExtra("appointmenttime")
+        val customerEmail = intent.getStringExtra("customerEmail")
+        val customerName = intent.getStringExtra("customerName")
+        val customerDate = intent.getStringExtra("customerDate")
+        val customerService = intent.getStringExtra("customerService")
+        val customerAppointmentTime = intent.getStringExtra("customerAppointmentTime")
 
-        val txtname = findViewById<TextView>(R.id.customername)
-        val txtemail = findViewById<TextView>(R.id.customeremail)
-        val txtdate = findViewById<TextView>(R.id.appointmentdate)
-        val txttime = findViewById<TextView>(R.id.appointmenttime)
-        val txtrequest = findViewById<TextView>(R.id.requestservice)
+        val txtName = findViewById<TextView>(R.id.txtCustomerName)
+        val txtEmail = findViewById<TextView>(R.id.txtCustomerEmail)
+        val txtDate = findViewById<TextView>(R.id.txtAppointmentDate)
+        val txtTime = findViewById<TextView>(R.id.txtAppointmentTime)
+        val txtRequest = findViewById<TextView>(R.id.txtRequestService)
 
-        txtname.text = "Name : $name"
-        txtemail.text = "Email : $email"
-        txtdate.text = "Appointment Date : $date"
-        txttime.text = "Appointment Time : $appointmenttime"
-        txtrequest.text = "Request Service : $service"
+        txtName.text = "Name : $customerName"
+        txtEmail.text = "Email : $customerEmail"
+        txtDate.text = "Appointment Date : $customerDate"
+        txtTime.text = "Appointment Time : $customerAppointmentTime"
+        txtRequest.text = "Request Service : $customerService"
 
-        val btnconfirmation = findViewById<Button>(R.id.btnconfirmnext)
-        btnconfirmation.setOnClickListener {
-            Toast.makeText(this, getString(R.string.confirmmessage, name, date, appointmenttime), Toast.LENGTH_SHORT).show()
+        val btnConfirmation = findViewById<Button>(R.id.btnConfirmNext)
+        btnConfirmation.setOnClickListener {
+            Toast.makeText(this, getString(R.string.confirmMessage, customerName, customerDate, customerAppointmentTime), Toast.LENGTH_LONG).show()
         }
 
     }
